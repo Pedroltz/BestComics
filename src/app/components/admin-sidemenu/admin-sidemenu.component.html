@@ -1,0 +1,41 @@
+<nav [class.collapsed]="isCollapsed" class="sidemenu">
+    <div class="menu-toggle" (click)="toggleMenu()">
+      <i class="fas toggle-icon" [ngClass]="{
+        'fa-angle-double-left': !isCollapsed,
+        'fa-angle-double-right': isCollapsed
+      }"></i>
+    </div>
+    <div class="sidemenu-content">
+      <h2 class="menu-title" *ngIf="!isCollapsed">Área da Administração</h2>
+      <ul>
+        <li>
+          <a routerLink="/admin-config" routerLinkActive="active">
+            <i class="fas fa-cog"></i>
+            <span *ngIf="!isCollapsed">Config</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin-genres" routerLinkActive="active">
+            <i class="fas fa-book"></i>
+            <span *ngIf="!isCollapsed">Gêneros</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin-manga" routerLinkActive="active">
+            <i class="fas fa-book-open"></i>
+            <span *ngIf="!isCollapsed">Mangás</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/admin-banners" routerLinkActive="active">
+            <i class="fas fa-image"></i>
+            <span *ngIf="!isCollapsed">Banners</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="logout" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+      <span *ngIf="!isCollapsed">Sair</span>
+    </div>
+  </nav>

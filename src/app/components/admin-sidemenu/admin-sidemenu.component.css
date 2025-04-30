@@ -1,0 +1,104 @@
+.sidemenu {
+    width: 220px;
+    height: 100vh;
+    background-color: #0d0e23;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .sidemenu.collapsed {
+    width: 60px;
+  }
+  
+  .sidemenu-content {
+    padding-top: 50px;
+  }
+  
+  .menu-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ff3c3c;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1001;
+    border: 2px solid #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-title {
+    margin: 20px 0 20px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .toggle-icon {
+    font-size: 1.2rem;
+  }
+  
+  .sidemenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidemenu li {
+    margin: 10px 0;
+  }
+  
+  .sidemenu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+  }
+  
+  .sidemenu a.active,
+  .sidemenu a:hover {
+    background-color: #ff3c3c;
+  }
+  
+  .sidemenu.collapsed a span {
+    display: none;
+  }
+  
+  .logout {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1rem;
+    border-top: 1px solid #444;
+    transition: background-color 0.3s;
+  }
+  
+  .logout:hover {
+    background-color: #ff3c3c;
+  }
+  
+  .sidemenu.collapsed .logout span {
+    display: none;
+  }
+
+  

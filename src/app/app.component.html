@@ -1,0 +1,18 @@
+<!-- Mostrar header apenas fora do admin -->
+<app-header *ngIf="!isAdminRoute"></app-header>
+
+<!-- Mostrar sidemenu apenas no admin e ouvir o evento -->
+<app-admin-sidemenu
+  *ngIf="isAdminRoute"
+  (collapsedChange)="onCollapsedChange($event)">
+</app-admin-sidemenu>
+
+<!-- Área principal (público ou admin) -->
+<div
+  [class.content-wrapper]="isAdminRoute"
+  [style.marginLeft.px]="isAdminRoute ? (collapsed ? 60 : 220) : 0">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Mostrar footer apenas fora do admin -->
+<app-footer *ngIf="!isAdminRoute"></app-footer>

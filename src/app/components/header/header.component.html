@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="logo">Best<span>Comics</span></div>
+  <ul class="nav-links">
+    <li><a routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+    <li><a routerLink="genres" routerLinkActive="active">Gênero</a></li>
+    <li><a routerLink="new" routerLinkActive="active">Novo</a></li>
+    <li><a routerLink="ranking" routerLinkActive="active">Ranking</a></li>
+  </ul>
+  <div class="nav-actions">
+    <i class="icon fa fa-heart"></i>
+    <i class="icon fa fa-history"></i>
+    <input type="text" class="search" placeholder="Pesquisar comics/autores">
+    <button class="sign-in">Sign in</button>
+  </div>
+</nav>

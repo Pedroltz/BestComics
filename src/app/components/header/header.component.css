@@ -1,0 +1,82 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; /* Reduzido ainda mais o gap entre logo, menus e ações */
+  position: relative;
+  background-color: #0d0e23;
+  padding: 1.5rem 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+.logo {
+  position: absolute;
+  left: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #ff3c3c;
+}
+
+.logo span {
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.7rem; /* Reduzido ainda mais o gap entre os links */
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.8rem; /* Ajustado padding horizontal para aproximar ainda mais */
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-links li a.active {
+  background-color: #ff3c3c;
+  color: white;
+  font-weight: normal;
+}
+
+.nav-links li a:not(.active):hover {
+  color: #ff3c3c;
+}
+
+.nav-actions {
+  position: absolute;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.nav-actions .icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.nav-actions .search {
+  background-color: #1a1a2e;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  color: white;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.nav-actions .sign-in {
+  background-color: #181a2f;
+  color: white;
+  border: 1px solid #444;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+}

@@ -1,0 +1,51 @@
+.footer {
+    background-color: #2f303e;
+    padding: 2rem 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: #bbb;
+    font-size: 0.9rem;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .brand h1 {
+    color: #ccc;
+    font-size: 1.8rem;
+  }
+  
+  .brand h1 span {
+    color: white;
+  }
+  
+  .brand p {
+    margin: 0.3rem 0;
+  }
+  
+  .social {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-link {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  
+  .social-link i {
+    margin-right: 0.4rem;
+    font-size: 1.2rem;
+  }
+  
+  .social-link:hover {
+    color: #ff3c3c;
+  }
+  

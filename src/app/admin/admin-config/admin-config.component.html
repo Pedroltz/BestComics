@@ -1,0 +1,72 @@
+<div class="admin-container">
+    <h2><i class="fas fa-user-shield"></i> Gerenciamento de Administradores</h2>
+  
+    <form (ngSubmit)="createAdmin()" class="admin-form">
+      <input
+        [(ngModel)]="newAdmin.email"
+        name="email"
+        placeholder="Novo email"
+        required
+      />
+      <input
+        [(ngModel)]="newAdmin.password"
+        name="password"
+        type="password"
+        placeholder="Senha"
+        required
+      />
+      <button type="submit">
+        <i class="fas fa-plus-circle"></i> Criar
+      </button>
+    </form>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Nova Senha</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of admins">
+          <!-- ID -->
+          <td>{{ admin.id }}</td>
+  
+          <!-- Email -->
+          <td>{{ admin.email }}</td>
+  
+          <!-- Nova Senha: Alterar ou campo de edição -->
+          <td>
+            <ng-container *ngIf="editingId === admin.id; else btnAlterar">
+              <input
+                [(ngModel)]="editPassword"
+                [name]="'editPassword' + admin.id"
+                placeholder="Nova senha"
+              />
+              <button (click)="saveEdit(admin)" title="Salvar">
+                <i class="fas fa-save"></i>
+              </button>
+              <button (click)="cancelEdit()" title="Cancelar">
+                <i class="fas fa-times"></i>
+              </button>
+            </ng-container>
+            <ng-template #btnAlterar>
+              <button (click)="startEdit(admin)" title="Alterar senha">
+                <i class="fas fa-edit"></i> Alterar senha
+              </button>
+            </ng-template>
+          </td>
+  
+          <!-- Ação: Excluir -->
+          <td>
+            <button (click)="deleteAdmin(admin)" title="Excluir usuário">
+              <i class="fas fa-trash"></i> Excluir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

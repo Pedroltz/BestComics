@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  min-height: calc(100vh - 56px); 
+  background-color: #0d0e23;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.not-found-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 1rem;
+
+  .content {
+    max-width: 320px;
+
+    h1 {
+      font-size: 6rem;
+      margin: 0;
+      color: #ff3c3c;
+    }
+    p {
+      font-size: 1.25rem;
+      margin: 0.5rem 0 1.5rem;
+    }
+    .btn-home {
+      background-color: #ff3c3c;
+      border: none;
+      padding: 0.6rem 1.2rem;
+    }
+}
+}
