@@ -7,6 +7,7 @@ import { Erro404Component } from './pages/erro404/erro404.component';
 import { AdminLoginComponent } from './auth/admin-login/admin-login.component';
 import { AdminMangasComponent } from './admin/admin-mangas/admin-mangas.component';
 import { AdminConfigComponent } from './admin/admin-config/admin-config.component';
+import { AdminGenresComponent } from './admin/admin-genres/admin-genres.component';
 
 export const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -15,6 +16,7 @@ export const routes: Routes = [
     { path: "genres", component: GenresComponent },
     { path: "ranking", component: RankingComponent },
     { path: "admin-login", component: AdminLoginComponent },
+    { path: "admin-genres", component: AdminGenresComponent},
     { path: "admin-manga", component: AdminMangasComponent },
     { path: "admin-config", component: AdminConfigComponent},
     { path: "**", component: Erro404Component }

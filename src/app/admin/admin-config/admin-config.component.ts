@@ -23,8 +23,7 @@ export class AdminConfigComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const isBrowser = typeof window !== 'undefined';
-    const isLogged = isBrowser && localStorage.getItem('isAdminLogged') === 'true';
+    const isLogged = typeof window !== 'undefined' && localStorage.getItem('isAdminLogged') === 'true';
     if (!isLogged) {
       this.router.navigate(['/admin-login']);
     } else {
@@ -33,12 +32,15 @@ export class AdminConfigComponent implements OnInit {
   }
 
   loadAdmins(): void {
-    this.adminService.getAdmins().subscribe(data => this.admins = data);
+    this.adminService.getAdmins().subscribe(admins => {
+      this.admins = admins;
+    });
   }
 
   createAdmin(): void {
     if (!this.newAdmin.email || !this.newAdmin.password) return;
-    this.adminService.createAdmin(this.newAdmin).subscribe(() => {
+
+    this.adminService.createAdminWithFirebase(this.newAdmin).subscribe(() => {
       this.newAdmin = { id: 0, email: '', password: '' };
       this.loadAdmins();
     });
@@ -51,8 +53,9 @@ export class AdminConfigComponent implements OnInit {
 
   saveEdit(admin: Admin): void {
     if (!this.editPassword) return;
-    const updated = { ...admin, password: this.editPassword };
-    this.adminService.updateAdmin(updated).subscribe(() => {
+
+    const updatedAdmin: Admin = { ...admin, password: this.editPassword };
+    this.adminService.updateAdmin(updatedAdmin).subscribe(() => {
       this.editingId = null;
       this.editPassword = '';
       this.loadAdmins();
@@ -65,9 +68,9 @@ export class AdminConfigComponent implements OnInit {
   }
 
   deleteAdmin(admin: Admin): void {
-    if (!confirm(`Tem certeza que quer excluir o usuário "${admin.email}"?`)) {
-      return;
-    }
+    const confirmDelete = confirm(`Tem certeza que deseja remover o admin "${admin.email}"?`);
+    if (!confirmDelete) return;
+
     this.adminService.deleteAdmin(admin.id).subscribe(() => {
       this.loadAdmins();
     });

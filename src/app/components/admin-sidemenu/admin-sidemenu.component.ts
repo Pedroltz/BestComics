@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { RouterModule, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin-sidemenu',
@@ -16,13 +17,14 @@ export class AdminSidemenuComponent {
 
   constructor(private router: Router) {}
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.isCollapsed = !this.isCollapsed;
     this.collapsedChange.emit(this.isCollapsed);
   }
 
-  logout() {
+  logout(): void {
     localStorage.removeItem('isAdminLogged');
+    localStorage.removeItem('token'); 
     this.router.navigate(['/']);
   }
 }

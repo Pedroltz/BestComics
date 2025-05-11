@@ -1,1 +1,35 @@
-<p>admin-genres works!</p>
+<div class="admin-genres-wrapper">
+  <div class="genres-container">
+    <h1>Gerenciar Gêneros</h1>
+
+    <!-- Criar novo gênero -->
+    <div class="form-inline">
+      <input [(ngModel)]="newGenreName" placeholder="Novo gênero..." />
+      <button (click)="createGenre()">Adicionar</button>
+    </div>
+
+    <!-- Erro -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+    <!-- Lista de gêneros -->
+    <ul class="genre-list">
+      <li *ngFor="let genre of genres">
+        <div *ngIf="editingId !== genre.id" class="genre-item">
+          <span>{{ genre.name }}</span>
+          <div class="actions">
+            <button (click)="startEdit(genre)">Editar</button>
+            <button (click)="deleteGenre(genre)" class="danger">Excluir</button>
+          </div>
+        </div>
+
+        <div *ngIf="editingId === genre.id" class="genre-item edit-mode">
+          <input [(ngModel)]="editName" />
+          <div class="actions">
+            <button (click)="saveEdit(genre)">Salvar</button>
+            <button (click)="cancelEdit()" class="secondary">Cancelar</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
