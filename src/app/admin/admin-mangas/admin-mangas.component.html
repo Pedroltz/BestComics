@@ -1,1 +1,35 @@
-<p>admin-mangas works!</p>
+<div class="admin-manga-wrapper">
+  <div class="manga-container">
+    <h1>Criar Novo Mangá</h1>
+    <form (ngSubmit)="createManga()" class="manga-form">
+      <div class="form-group">
+        <label>Nome</label>
+        <input [(ngModel)]="form.name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <textarea [(ngModel)]="form.description" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Autor</label>
+        <input [(ngModel)]="form.author" name="author" />
+      </div>
+      <div class="form-group">
+        <label>Capa</label>
+        <input type="file" (change)="onCoverSelected($event)" />
+      </div>
+      <div class="form-group">
+        <label>Gêneros</label>
+        <div class="genre-options">
+          <label *ngFor="let g of genres">
+            <input type="checkbox" [value]="g.id" (change)="onGenreToggle(g.id, $event.target.checked)" [checked]="selectedGenres.includes(g.id)" />
+            {{ g.name }}
+          </label>
+        </div>
+      </div>
+      <button type="submit">Criar</button>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+      <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+    </form>
+  </div>
+</div>
